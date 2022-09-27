@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MVCCarritoCompras.Models.Producto>
+
+@{
+    ViewBag.Title = "ListaProductos";
+}
+
+<h2>Productos de la Tienda</h2>
+
+
+    @Html.ActionLink("Ver Carrito de la Compra", "ProductosCarrito", "Producto")
+<br/><br />
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>TELÉFONO</th>
+        <th>IMAGEN</th>
+        <th>COMPRAR</th>
+    </tr>
+
+@foreach (var prod in Model) {
+    <tr>
+        <td>@prod.IdProducto</td>
+        <td>@prod.Nombre</td>
+        <td>$ @prod.Precio USD</td>
+        <td><img style="width:70px; height:70px" src="~/img/@prod.Imagen"/></td>
+        @if(ViewBag.Carrito != null && ViewBag.Carrito.Contains(prod.IdProducto))
+        {
+            <td><img style="width:20px; height:20px" src="~/img/ok.jpg"/><span>Añadido al Carrito</span></td>
+         }
+         else
+         {
+            <td>@Html.ActionLink("Añadir al Carrito", "ListaProductos", "Producto", new { id = prod.IdProducto}, new { @class = "btn btn-primary"})</td>
+         }
+        
+    </tr>
+}
+
+</table>

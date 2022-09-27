@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVCCarritoCompras.Models.Producto>
+
+@{
+    ViewBag.Title = "ProductosCarrito";
+}
+
+<h2>Carrito de la Compra</h2>
+
+@if(Session["PRODUCTOS"] == null)
+   {
+    <h2 style="color:red">
+        No hay producto en el Carrito
+    </h2>
+   }
+   else
+     {
+      <dl class="row">
+      @foreach (var prod in Model)
+       {
+          <dt><img style="width:70px; height:70px" src="~/img/@prod.Imagen"/></dt>
+          <dd>@prod.Nombre</dd>
+          <dd>$ @prod.Precio USD</dd>
+          <dd>
+              @Html.ActionLink("Eliminar del Carrito", "ProductosCarrito", "Producto", new { id=prod.IdProducto}, new {@class= "btn btn-danger" })
+          </dd>
+          <br />
+       }
+      </dl>
+     }
+
+@Html.ActionLink("Volver a los Productos", "ListaProductos", "Producto")
+
+
+
