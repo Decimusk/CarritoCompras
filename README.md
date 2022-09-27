@@ -4,7 +4,7 @@ Patrón de arquitectura
 Expresa un esquema de organización estructural para una aplicación, teniendo así un nivel de abstracción alto.
 
 MVC
-Patrón de arquitectura que separa los datos de la aplicación, la interfaz de usuario y la lógica de control en tres componentes distintos, modelo-vistacontrolador.
+Patrón de arquitectura que separa los datos de la aplicación, la interfaz de usuario y la lógica de control en tres componentes distintos, modelo-vista-controlador.
 
 ¿Por qué MVC?
 Probablemente hayas llegado a este punto porque desea informarse o aclarar sus dudas sobre si vale la pena incorporar MVC a sus proyectos de una aplicación ASP.NET, o 
